@@ -4,7 +4,6 @@
 #### Unity Version 2019.3.3f1
 
 # Packages installed
-1. arcore": "2.1.2"
-2. arfoundation": "2.1.4"
-3. arkit-face-tracking": "1.0.2"
-4. legacyinputhelpers": "1.3.11"
+1. arcore": "3.1.0"
+2. arfoundation": "3.1.0"
+3. arkit-face-tracking": "3.1.0"
