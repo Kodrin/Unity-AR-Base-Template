@@ -9,6 +9,7 @@ public class RandomBall : MonoBehaviour
     public Vector3 acceleration;
     public Vector3 velocity;
     public Vector3 ballPosition;
+    public Vector3 trackedImagePosition;
      
 
     // Start is called before the first frame update
@@ -17,6 +18,9 @@ public class RandomBall : MonoBehaviour
         this.ballPosition = this.transform.position;
         this.acceleration = Vector3.zero;
         this.velocity = Vector3.zero;
+
+        if(this.transform.parent != null)
+            this.trackedImagePosition = this.transform.parent.transform.position;
     }
 
     // Update is called once per frame
@@ -27,10 +31,10 @@ public class RandomBall : MonoBehaviour
 
         float r = Random.value;
         float x =  Mathf.PerlinNoise(Mathf.Sin(Random.value), Mathf.Cos(Random.value) ) * 2.0f - 1.0f;
-        float y =  Mathf.PerlinNoise(Mathf.Sin(Random.value), Mathf.Cos(Random.value) ) * 2.0f - 1.0f;
-        float z =  Mathf.PerlinNoise(Mathf.Sin(Random.value), Mathf.Cos(Random.value) ) * 2.0f - 1.0f;
+        float y =  Mathf.PerlinNoise(Mathf.Cos(Random.value), Mathf.Tan(Random.value) ) * 2.0f - 1.0f;
+        float z =  Mathf.PerlinNoise(Mathf.Tan(Random.value), Mathf.Sin(Random.value) ) * 2.0f - 1.0f;
         
-        target = new Vector3(x, y, z);
+        target = new Vector3(x, y, z) + this.trackedImagePosition;
         var targetDiff = target - this.transform.position;
       
         this.velocity += targetDiff * dt;
