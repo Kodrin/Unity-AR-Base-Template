@@ -34,7 +34,7 @@ public class RandomBall : MonoBehaviour
         var targetDiff = target - this.transform.position;
       
         this.velocity += targetDiff * dt;
-        this.transform.position += this.velocity;
+        this.transform.position += this.velocity * this.speed;
     }
 
     /// <summary>

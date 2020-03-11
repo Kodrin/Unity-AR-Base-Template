@@ -99,7 +99,7 @@ public class TrackedImageInfoManager : MonoBehaviour
         foreach (var trackedImage in eventArgs.added)
         {
             // Give the initial image a reasonable default scale
-            trackedImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            trackedImage.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
 
             UpdateInfo(trackedImage);
         }
