@@ -17,11 +17,12 @@ public class Levitate : MonoBehaviour
 
     void Start()
     {
-        this.initialPosition = this.transform.position;
+        this.initialPosition = this.transform.parent.position;
     }
 
     void Update()
     {
+        this.initialPosition = this.transform.parent.position;
         float randomPerlin = Mathf.PerlinNoise(Time.time, Time.time);
         float sinY = Mathf.Sin(Time.time * this.levitateSpeed) * this.levitateAmplitude;
         this.transform.position = this.initialPosition + new Vector3(
